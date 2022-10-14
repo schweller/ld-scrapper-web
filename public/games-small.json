@@ -1,0 +1,290 @@
+[
+    {
+      "Id": 296730,
+      "Body": "# How to play\n\n## Just put your hand on the wasd and mouse.\n\n_ You will play a number of small games (very few). They are controlled with the mouse or wasd. You only have 10 seconds to figure out how to play each game and play it. Relax, they're all very simple and you don't need to finish every game, you just need spend 10 seconds on it! _\n\n# About the game\n\u003e(Contains spoilers, playing the game first)\n\nThe aim of making this game was to make something enjoyable.\n\n\nThese minigames are very simple, while contain tricks that may give you a little surprise. For example, in the Sokoban level the boxes explode when three of them connected in a line. \n\nSome of the mini-games have a lot of potential, such as Sokoban and Wizard. In the original plan they had many levels and would appear many times. But for some reason these were not completed. On the one hand, 48 hours is really too short. On the other hand, I'm not sure if the player can solve the more complex levels in 10 seconds. PUSHBOX2 would have been too complex. Even if you know the correct solution it's hard to finish on time.\n\nWizard is my favourite minigame. Destroy enemies with three special spells. Each spell sounds harmless, but the monsters disappear because of the Match-3 rule, so you can still start a massacre with them.\nUnfortunately only the tutorial level of the wizard was completed. By that time I hadn't slept for 20 hours straight whitch makes me had to turn to some easy games. I think even though taking Sorcerer out on its own would make for a good game. I wonder if you saw the potential of this game in 10 seconds.\n\n\n# Development work\n\nI really like the baba is you art style, where everything is wigglling. I think a shader witch makes the textures shift according to the noise can do this. But I chose the dumbest way. draw all the art assets three times. Three times! Hope it is worth.\n\n\nThe code work was very stifling. The first few hours I was doing some framework stuff like scene switching and cleaning up all the sprites at the end of the level. The work was pretty easy until I got to the minigames development stage. First of all, there were a lot of games that needed to be developed in original plan. It would take me hours to create one minigame, and that would only allow the player to play it for 10 seconds. For most of the time, there was no end in sight because even if I spent a super long time on a minigame, the whole game flowed still less than one minute. It was the hardest gamejam I've ever joined, but thank goodness it was finally finished. Barely finished, because there were only 10 minigames.If you were amused during the playthrough, it means my work was not in vain. \n\n![ld51.gif](///raw/b5d/34/z/51cfd.gif)",
+      "Name": "minigames!",
+      "Meta": {
+        "link-01": "https://github.com/thyoi/Ludum-Dare-Game-Collection/tree/main/ludumDare51",
+        "link-02": "https://thyoi.itch.io/minigames",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/minigames"
+    },
+    {
+      "Id": 297041,
+      "Body": "Every ten seconds, the 10-second pellet is gulped. And every ten seconds, those cursed ghosts float for their non-lives, not to be brought by the Mighty Claw to one of the coloured gods as assorted offerings.\n\nWhere do you fit in this? Well, you play as the claw.\n\nAn arcade-styled speedy short-term memory game. *Pac-Man* meets red light, green light.\n\nSome more information (not that much!) is in the [README.md](https://gitlab.com/Mossieur_Patate/ludum-dare-51/-/blob/master/README.md) from the GitLab repository, especially some ideas I have.\n\n### How to play\n\nThe game alternates between ‘night’ and ‘day’ phases. During the night, you can observe the colours of the ghosts; during the day, you can grab and release ghosts. The goal is to release ghosts on the sideway receivers (the four static coloured Pac-Mans), matching the colours. The target number of ghosts is indicated in the upper-left corner (‘Sacrifices’), while the remaining number of full night-day cycles is indicated right to the Power Pellet icon (also in the upper-left corner). *[In version 1.1, ‘Harvest’.]*\n\nThere is no maximum level, the game goes on (until level 49, see below). *[In version 1.1, the game goes back to level 1 after level 38.]*\n\n**COLOURBLIND MODE:** in colourblind mode, numbers get displayed to make up for colours (both on daytime ghosts and receivers).\n\n### Controls\n\n* **Arrow keys** to move the claw\n* **Space** to catch/release a ghost\n\n![Gameplay.](///raw/3d5/84/z/50103.gif \"Gameplay.\")\n\n![Level 1.](///raw/3d5/84/z/50073.png \"Level 1.\")\n\n![Failure in level 2.](///raw/3d5/84/z/50105.png \"Failure in level 2.\")\n\n![Colourblind mode.](///raw/3d5/84/z/526f9.png \"Colourblind mode.\")\n\n### Platforms\n\n* **Navigator: Disclaimer:** as fullscreen was not working properly, display is just a little different (smaller resolution, and also a small zoom out from v1.0.2). See this [devlog](https://mossieur-patate.itch.io/maudits-fantomes/devlog/436556/navigator-version) for details about debugging.\n\n* **Linux:** it is somewhat uneasy to provide a one-size-fits-all Linux binary because of the variety of distributions, but using the **.love** file I uploaded, [having Love2D](https://love2d.org) should be enough. There is also a solution involving AppImage, although I could not test it. See [here](https://love2d.org/wiki/Game_Distribution#Distribution_for_Linux) for more detail.\n\n### Versions\n\n**(05/10/2022)** Current legitimate Compo version is 1.0.1, which is basically version 1.0 + colourblind mode + level-skipping key.\n\n**(06/10/2022) OUT NOW:** post-Compo version 1.0.2 with better parameters for difficulty steepness and for the ghosts’ ‘night shift’ duration. ;) Although this is really the original version ‘done right’… I am not replacing the original one as I am not sure this would be fair, but you can still take a look if you want to see some more justice done to the game. See [devlog](https://mossieur-patate.itch.io/maudits-fantomes/devlog/436510/version-102) for details (including better tiles and a difficulty fix). You can also **download** the 1.0.2 navigator version (in case you can make it run somewhere), but take notice that the current itch.io player runs 1.0.1.\n\n**(05/10/2022) HOPEFULLY COMING SOON:** post-Compo version 1.1 with stackable ghosts, and possibly a mode with pre-designed levels. Another idea I had and will try here, which is even simpler to program, is a *Tetris*-like ‘Panic Mode’ where you get more ghosts with time, and have to take them out as long as possible before the whole space is full. (And also, getting the screen hidden or colours ‘blurred’ for some time as a penalty for holding a ghost at night, which would make more sense than merely getting immobilised.) I am willing to bet I would totally have had the time to make this one for the Jam deadline, and possibly the night of the Compo deadline. **(11/10/2022) OUT NOW:** modes are saved for a future version 1.2, but layers, more challenging difficulty, and a lot of user-friendly details have been added! :) The [mouthful devlog](https://mossieur-patate.itch.io/maudits-fantomes/devlog/438512/version-11) is there. Once again, **downloading** the 1.1 navigator version is possible. I think things are getting interesting here, stressing again out of fairness that this should **not** be judged as the Compo version, although it can give a hint about the game’s potential and extensions. (For the record, debugging collisions and shadows was a massive time black hole! This version would have been riddled with occasional front-depth shadows in competition conditions…) Either 1.1 or 1.2 is ‘Jam version done right’.\n\n\n### A little backstory\n\nI came up very late with the complete idea, while I thought of the cheeky allusion to the famous arcade mechanic very quickly. I would have had the time for the whole layer mechanic and carefully crafted levels based on it (including implicit tutorial progression) had I not had so much trouble with my thought process (I wavered between a whole host of wildly different concepts!); actually, I might have been able to make it in less than one or two hours, and certainly for the Jam deadline, but I wanted to challenge myself for the Compo rules. Playtesting was also minimal with the final conditions, but having a series of increasingly difficult levels is a makeshift solution; the formulae are super easy to tweak, although I am unsure this would count as bug fixing… (**Edit shortly thereafter:** I simply decreased the number of cycles. This was really one mere instruction and this feels way more reasonable! No change in mechanics.)\n\nI may upload a version with layers elsewhere, so stay tuned if you are interested! :slight_smile: (But not here, as I believe upgraded versions are not authorized even if the original stays available and pinpointed? Not sure, the rules do not say; maybe you know.)\n\n### Tools\n\n* **Framework:** [Love2D](https://love2d.org/)\n\n* **Sound effects:** [jsfxr](https://sfxr.me/) + [Audacity](https://www.audacityteam.org/)\n\n* Nothing else for the **graphics**, as everything here is managed entirely programmatically (except for the icon and thumbnail/cover), and often vectorially. So, [Sublime Text](https://www.sublimetext.com/)! :slight_smile:\n\n* As a side note: for [reducing](https://www.iloveimg.com/fr/redimensionner-image) and [compressing](https://www.iloveimg.com/fr/compresser-image) the animated GIF, iLoveIMG is useful.\n\n### Known bugs\n\n[**All solved** in version 1.1]\n\n* Since I (voluntarily) let the grid at a constant size, and since there is no cap on the number of ghosts nor vertical stacking of ghosts programmed, I suspect you will run into an infinite loop if you reach too high a level. (A quick inequation solving leads me to believe this would be level 49. Hey, after all, the original *Pac-Man* had a [notorious bug for level 256](https://atari.fandom.com/wiki/Pac-Man/Level_256)! Mine is just not a cool power-of-2-related one.)\n\n* Ghosts sometimes collide, while they should not. This is only seldom a problem, except maybe in very advanced levels.\n\n* It seems that you sometimes cannot grab a ghost right after having released it. Unsure.\n\n* Not really a bug per say, but display depth is not (yet) handled, so, do not frown if you see a ghost pass behind another one when it should not. Consider it ghost magic. :3\n\n### Known non-bugs\n\n* v1.1: Ghosts will first finish their current movement (including staying still) before falling, in a Wile E. Coyote fashion: this is on purpose. :)\n\n* v1.1: preventing superimposition is dealt with by stacking upwards. See point 35 from the devlog.",
+      "Name": "Maudits Fantômes / Cursed Ghosts",
+      "Meta": {
+        "link-01": "https://gitlab.com/Mossieur_Patate/ludum-dare-51/-/tree/v1.0.1",
+        "link-02": "https://mossieur-patate.itch.io/maudits-fantomes",
+        "link-03": "https://mossieur-patate.itch.io/maudits-fantomes",
+        "link-04": "https://mossieur-patate.itch.io/maudits-fantomes"
+      },
+      "Path": "/events/ludum-dare/51/maudits-fantomes-cursed-ghosts"
+    },
+    {
+      "Id": 299261,
+      "Body": "What's supposed to be a routine mining expedition goes a bit wrong when your teleporter starts activating every ten seconds! Gather what resources you can, kill enemies, find artifacts, and try to survive as long as possible!\n\nYour teleporter is broken, and will warp you every 10 seconds between your base, the mine, and a hostile zone. In the mines, destroy rocks to collect ore. In the hostile zone, kill enemies to collect resources and rare artifact drops. In your base, heal up and spend resources and ore to activate collected artifacts. The difficulty ramps up the more you teleport!\n\nControls (Keyboard/Gamepad): WASD/Left Stick to Move, Arrows/Right Stick to Shoot, Space/Back to Teleport Early, E/A to Buy Artifacts, Ctrl/Left Trigger to Hide the HUD, Enter/Start to Pause\n\nThere are three kinds of artifacts (common [blue], rare [white], and super rare [rainbow]) each with their own unique effects. You'll need gems to buy super rare artifacts though, and those are rare drops from tougher enemies!\n\n![Screenshot 2022-10-02 212303.png](///raw/ef7/3/z/4f94b.png)\n\n![Screenshot 2022-10-02 212210.png](///raw/ef7/3/z/4f94e.png)\n\n![Screenshot 2022-10-02 212337.png](///raw/ef7/3/z/4f947.png)\n\n![Screenshot 2022-10-02 212235.png](///raw/ef7/3/z/4f94d.png)",
+      "Name": "Teleporter Malfunc-ten",
+      "Meta": {
+        "link-01": "https://glenugie.itch.io/ld51-teleporter-malfunc-ten",
+        "link-02": "https://glenugie.itch.io/ld51-teleporter-malfunc-ten",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/teleporter-malfunc-ten"
+    },
+    {
+      "Id": 300369,
+      "Body": "# :egg: Transmit your brood beyond :spider: \n\n![3.png](///raw/e4c/2/z/528d7.png)\n\n## Imprisoned for life, you are destined to only proliferate.\n\n## Take control of the infernal sorting apparatus and pick the valid specimen of your pitiable offspring.\n\n![Carpovum1A16small2b.gif](///raw/e4c/2/z/528d8.gif)\n\n![Carpovum1A16Croppedd.gif](///raw/e4c/2/z/528d9.gif)\n\n![Apparatus.gif](///raw/e4c/2/z/529c4.gif)\n\n```\nArrow Keys - Move the drone\n\nZ / SPACE - Select mode [PICK / BOUNCE]\n\nESC - Menu\n\nMouse/Touch controls optional!\n```\n\n## Every 10 seconds the machine activates and one new egg is produced.\n\n![Help.gif](///raw/e4c/2/z/529c5.gif)\n\n---\n:point_down: IN A NUTSHELL :chestnut: \n- Pick up eggs and put them into the tube\n\n- Bounce the hatchlings while avoiding the sawblades\n\n- Try to get the little guys into the creepy mouth\n\n---\nThis was a 48h COMPO-entry, so naturally no 3rd-party assets were used.\n\nI didn't prepare a basecode and started from scratch.\n\nGraphics were hand-drawn on paper with a marker pen and colored digitally.\n\n---\n\n**Tools used: Lubuntu 20.04.5 LTS, Clickteam Fusion 2.5 (using WINE), GIMP, Skanlite, sfxr**\n\n---",
+      "Name": "CARPOVUM",
+      "Meta": {
+        "link-01": "https://dis0rder.itch.io/carpovum",
+        "link-02": "https://dis0rder.itch.io/carpovum",
+        "link-03": "https://dis0rder.itch.io/carpovum",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/carpovum"
+    },
+    {
+      "Id": 301346,
+      "Body": "You are an operator of an advanced probe named S.E.C.O.N.D.,for about every 10 seconds from sometime.  \nYou‘ve find a planet you can conquer,but before conquering,we need clean it,at least part of it.  \nBut the indigenous wont wait for your 10 S.E.C.O.N.D.S.,they build launcher to defence their own homeland,as most as they can.  \nYou only have 10 S.E.C.O.N.D.S.,enjoy or.....  \n  \n  \nWASD to move around the planet,Space to jump or get higher;  \nthe planet has its physics and random spawned map every time you restart.  \nDestory an much buildings as you can to gain new high score!Or.....  \n  \n  \nBased on Unity2019 and Win10,no more senonds for more test :(  \n\n你是一种缩写为S.E.C.O.N.D的先进探测器的操作员，管他几个十秒之前就是了。  \n\n你找到了一颗适合纳入版图的星球，但我们得收拾屋子再进屋，能整多少整多少。  \n\n但原住民可不是好惹的，他们会建造发射井和火箭来守卫他们的家园，并尽力而为。  \n\n你只有十次机会，炸的开心，或者...  \n  \n  \nWASD在星球表面周围移动，空格键跳跃或者继续上升（一点）  \n  \n这颗星球有自己的物理和每局随机生成的地表建筑。  \n  \n  \n尽可能去破坏更多的建筑以获取分数，或者...  \n  \n总之试试就知道了！  \n  \n基于Unity2019，运行于Win10.  \n  \n我缺几个十秒去多测试一下，所以Bug可能会很多。  \n  \n忙了十几个小时才想起来十一不放假，先去水数据周报应付导师，之后再修bug填内容orz  \n\n\nEnjoy it and have fun！  \n\n玩的开心！  \n\n\nUpdate：  \nThank for all comments \u003c3  \ndevelope log in Chinese at https://www.bilibili.com/read/cv18983343  \nthe game was totally shortened due to my postgraduate studies and shortened vocation _(:з)∠)_  \nthank all my players   \n",
+      "Name": "10 Sec ends",
+      "Meta": {
+        "link-01": "",
+        "link-02": "",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/10-sec-ends"
+    },
+    {
+      "Id": 302389,
+      "Body": "Welcome to Star Trotters!\nYou have stolen an artifact from the galactic dominion and they want it back!\n\n![Screenshot (165).png](///raw/347/e/z/4fbe4.png)\n\nLuckily, this artifact magically upgrades your ship every ten seconds!\nUnluckily, this artifact is manual and you have to time it well to get an upgrade\n\nHow long will you survive?\n\n",
+      "Name": "Star Trotters",
+      "Meta": {
+        "link-01": "https://github.com/MerpADer/LudumDare51",
+        "link-02": "https://d0gg3d.itch.io/star-trotters",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/star-trotters"
+    },
+    {
+      "Id": 303236,
+      "Body": "## :question: About\n\nTwo particles will collide **every 10 seconds**, and only one of them may survive.\n\n**Twist** the matter inside to create colored lines of **4 or more subparticles of the same color**, strengthening your particle, and prepare for the crash: the strongest particle wins the round!\n\n## :computer: Requirements\n\nThis game requires:\n\n- A screen with a resolution of **1600x900 pixels or greater** \n- **2 local players** _(call a friend and play together!)_\n- **full color vision** _(sorry color blind friends...)_\n\n## :camera_with_flash: Screenshot\n\n![Screenshot of the first level with the default colors](///raw/d4d/z/4f5d7.png \"Screenshot of the first level with the default colors\")\n\n## :keyboard: Controls\n\n### :one: Player 1\n\n- \\[**W**\\] \\[**A**\\] \\[**S**\\] \\[**D**\\] - Move\n- \\[**Space**\\] - Rotate clockwise\n\n### :two: Player 2\n\n- \\[**↑**\\] \\[**←**\\] \\[**↓**\\] \\[**→**\\] - Move\n- \\[**Enter**\\] - Rotate clockwise\n\n### :asterisk: Common\n\n- **Mouse** - Select options on the menu\n- **`M`** - Mute music\n- **`N`** - Mute sounds",
+      "Name": "Particle Clash",
+      "Meta": {
+        "link-01": "https://steffo.itch.io/particle-clash",
+        "link-02": "https://steffo.itch.io/particle-clash",
+        "link-03": "https://steffo.itch.io/particle-clash",
+        "link-04": "https://github.com/Steffo99/particle-clash"
+      },
+      "Path": "/events/ludum-dare/51/particle-clash"
+    },
+    {
+      "Id": 304027,
+      "Body": "![Screenshot 2022-10-03 090808.png](///raw/aa7/3/z/4fc78.png)!\n\nA game in which you type a lot to make food!\n\nEvery 10 seconds a new order comes in at your fish n chips n random other things shop. You need to make fulfill these orders perfectly or you won't get a good score.\n\nTry to get as many orders successful as you can in one week and then find out how you stand on the global leader board  \n\nPlease post your score and leader board ranking in the comments :)\n\nEverything made by me in GameMaker Studio 2 and sfxr but I used an extension by FriendlyCosmonaut for the dialog boxes.\n\nQuite proud of the game play in this one and it took quite a while to get working well but unfortunately that meant I ran out of time to make it look anywhere near decent, I made most of the sprites in the last hour of the competition lol.\n\nPlease let me know ways you think the game play could be improved if I decide to continue working on this, I had an idea to have a phone so customers could call up and change their orders. You'd have to remember the changes as they wouldn't update on the order at the top of the screen.\n\nHave fun!\n\nRequires the use of function keys to submit orders, if you are on a laptop you may need to hold a FN key or toggle them some other way.\n\nTips:\n- Game lasts 5 days, goes until 5pm (17:00) each day.\n- once you've pressed enter to start making something you can press the letter and number keys to prepare the next thing so you can press enter to make it as soon as the last one is finished.\n\nControls:\n- spacebar continue text\n- Function Keys - Submit order (uses everything you've made shown on the right)\n- Number Keys - Choose quantity of item to make\n- Letter Keys - Held down with number key to make something\n- Enter - Makes the currently assembled food / drink item (you can release number and letter keys once you've pressed enter)\n- Backspace - Removes the bottom item from your list of what you've made.\n\nSource code here: https://github.com/BobFish/LD51\n\nUpdate 5th Oct - I have released a v2 version which simply fixes a few bugs I found including not displaying the high score leader board correctly.",
+      "Name": "Fish n  Keys",
+      "Meta": {
+        "link-01": "https://github.com/BobFish/LD51",
+        "link-02": "",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/fish-n-keys"
+    },
+    {
+      "Id": 304101,
+      "Body": "Two beers and a glass of wine is a management game where you play as a barman trying to serve customers their drinks. Keep the customers satisfied before closing time to pass to the next level. \n\nDon't let the customers reach 100 frustration or you will get fired!\n\nControls:\nWASD/Arrow keys to move\nSPACE to pickup/deliver drinks\n\nAlternative download location: https://arachnid56.itch.io/two-beers\nSource code: https://github.com/scartwright91/ludum-dare-51\n\nMade in c++ and opengl\n",
+      "Name": "Two beers and a glass of wine",
+      "Meta": {
+        "link-01": "https://github.com/scartwright91/ludum-dare-51",
+        "link-02": "",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/two-beers-and-a-glass-of-wine"
+    },
+    {
+      "Id": 305905,
+      "Body": "You are the director of a new indie art gallery! But it's opening night, the journalists are just ten minutes away - and the delivery with your paintings is nowhere to be seen! You're left with no choice but to make the art yourself; but with so little time, you only have ten seconds to make each one! Can you make opening night a success?",
+      "Name": "The Last Minute Gallery",
+      "Meta": {
+        "link-01": "https://github.com/harrisongowland/the-last-minute-gallery",
+        "link-02": "",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/the-last-minute-gallery"
+    },
+    {
+      "Id": 296591,
+      "Body": "![echoLDHeader.png](///raw/8d0/41/z/5010c.png)\n\n\u0026nbsp;\n\nNavigate abstract environments with echolocation. Narrowly avoid falling to your death using only the flashes of sight that come once **every 10 seconds.**\n\n![ezgif.com-gif-maker (1).gif](///raw/8d0/41/z/523ee.gif)\n\n* WASD to move, Space to jump.\n* A tip if you're struggling: it's easier to see if you **turn off your lights!** Embrace the darkness...\n* A challenge to any speedrunners out there: I beat it in 2 minutes, 34 seconds (link below). Can you do better?\n* Sorry for the lack of WebGL, for the third time running! It was not liking all the fancy stuff I was doing with audio mixers.\n* Done with Unity/C#, Photoshop, Illustrator, Blender, FL Studio, and Audacity. The font I used is Tiresias by the Royal National Institute for the Blind. Check out my other projects [here!](thquinn.github.io)\n\nAnd finally, here's a video showing how to run and jump on walls, for those having trouble with my not-very-helpful tutorial:\n\nhttps://youtu.be/ljWNXiU_RC8",
+      "Name": "Echo",
+      "Meta": {
+        "link-01": "https://github.com/thquinn/Echo",
+        "link-02": "https://github.com/thquinn/Echo/releases",
+        "link-03": "https://github.com/thquinn/Echo/releases",
+        "link-04": "https://www.youtube.com/watch?v=ml_sE9iy6Jc"
+      },
+      "Path": "/events/ludum-dare/51/echo"
+    },
+    {
+      "Id": 296619,
+      "Body": "![ITGROWSscreen1.PNG](///raw/582/43/z/4f736.png)\n\nWelcome to ItGrows a short creepy game about collecting resources while running away from a HORRIFYING BEAST which grows every 10 seconds.\nActually he doesnt look very creepy(in my opinion) but its a fun short little game give it a try i guarantee it wont be the worst game you have played on here(it will also not be the best but lets just ignore that part)\n\n![ITGROWSscreen2.PNG](///raw/582/43/z/4f73a.png)",
+      "Name": "ItGrows",
+      "Meta": {
+        "link-01": "https://jimbink.itch.io/itgrows",
+        "link-02": "https://jimbink.itch.io/itgrows",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/itgrows"
+    },
+    {
+      "Id": 296665,
+      "Body": "![LD_SCREENIE.png](///raw/bb0/93/z/4f760.png)\n\n## Story\n\n\u003e You've been a competitive jouster your whole life. Today, you have found the ultimate prize: The Golden Lance! It is powerful enough to defeat its opponents in one go, but at a cost: you must win all of your battles within 10 seconds or it will take you back in time to the start of the battle! Are you up to the challenge?\n\n## Controls\n\n\u003e Mouse - Click to pick a place to charge to.\n\n## Credits\n\n\u003e Everything made from scratch by me.\n\u003e Thanks to Matt and Evan, my best friends IRL who put up with my near-constant Discord group call.\n\n## Notes\n\n\u003e As per the rules of LD, the source code for the game can be found as a download on the itch page. You're more than welcome to check out the inner workings of my chewing gum and duct-tape engineering.\n\n## Edits\n\n\u003e Also as per the rules for Ludum Dare COMPO, any and all changes made during play+rate will be noted below.\n\nFIX: Fixed off-by-one error that causes crashes in level select mode.",
+      "Name": "Compulsive Jousting",
+      "Meta": {
+        "link-01": "https://mavvymakesgames.itch.io/compulsive-jousting",
+        "link-02": "https://mavvymakesgames.itch.io/compulsive-jousting",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/compulsive-jousting"
+    },
+    {
+      "Id": 296670,
+      "Body": "Intro\n----------\n\nWe need to destroy the weapon at the planet's core! The gate to the core will only open when there are no more active bases to protect it. Destroy all of the active bases, then destroy the enemy's greatest weapon at the planet's core!\n\nThis is our last chance! The enemy grows stronger every 10 seconds! Take your Manta Fighter and destroy that weapon!\n\nBases are becoming operational. You need to destroy all active bases quickly (those are the red ones)! Every 10 seconds they are activating bases and deploying fighters.\n\nControls\n----------\n```\nUp arrow - move forward\nW - rotate down\nS - rotate up\nA - rotate left\nD - rotate right\nSpacebar - shoot\n\nUpgrades (available every 10s)\n1 - Get more bullets\n2 - Upgrade speed\n3 - Heal\n```\n\nScreenshots\n-----------\n\n![screenshot.png](///raw/c44/32/z/4fd90.png)\n\n![screenshot-gate.png](///raw/c44/32/z/50374.png)\n\nTools\n-----------\n\n- Engine: Unity\n- Graphics: Blender / Inkscape / Krita\n- Sound: Bfxr / Audacity\n- Font: Oxanium (https://sev.dev/fonts/oxanium)\n",
+      "Name": "Manta Fighter",
+      "Meta": {
+        "link-01": "https://pincushionx.itch.io/manta-fighter",
+        "link-02": "https://github.com/pincushionx/ld51-manta-fighter",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/manta-fighter"
+    },
+    {
+      "Id": 296681,
+      "Body": "# Bobo’s Happiness Factory!\n\n![ase_bobo_logo.png](///raw/046/93/z/4f92f.png)\n\nEverybody loves treats and gifts from Bobo’s Happiness Family company. Do you have what it takes to become one of the best Bobo’s Happiness Factory workers? We will see about that!\n\nBobo is very nice to everybody, but if you destroy more than 250 $ items, then you’re off, so be careful!\n\nGameplay: ~5 minutes.\n\n## How to play?\n\n1. Wait for the item to drop from the conveyor belt to the working area.\n1. Click on the item that you want to wrap.\n1. Hover above `(+)` marker until the item is fully wrapped.\n1. Select another item.\n\nIf you want to mute sounds or music in game:\n* You can pause the game by pressing Esc.\n* When in pause menu, the items disappear, but the game still goes on, so be quick!\n\n![Screenshot 2022-10-02 at 20.13.33.png](///raw/046/93/z/4f84e.png)\n\n## Known issues\nSometimes if you restart the failed game super quickly, you can take some damage right away from the old instances. I tried the best to limit this and it should be very rare, but if you want to go for \"high score\" and want to be super safe, just restart the game, or check whether you are not taking damage right away. If you are not even after 10 seconds, you’re good to go.\n\n## Technical\n### Tools used\nGame was created using these tools:\n\n* Godot v3.4.\n* Aseprite.\n* Ableton Live 11 Lite using Sylenth1 VST.\n\n### GitHub\nThe whole project including literally everything (source code + Aseprite projects + Ableton project) can be [found here](https://github.com/dzejpi/Bobo-s-Happiness-Factory). Enjoy!",
+      "Name": "Bobo's Happiness Factory",
+      "Meta": {
+        "link-01": "https://github.com/dzejpi/Bobo-s-Happiness-Factory",
+        "link-02": "https://dzejpi.itch.io/bobos-happiness-factory",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/bobos-happiness-factory"
+    },
+    {
+      "Id": 296705,
+      "Body": "![ld51-raining.gif](///raw/2de/12/z/523fa.gif)\n\n\n\u003e 🏹 Lead the village the defend against relentless waves of monsters!\n\n\n## ⚠️ TIPS!\n\n-   🏹 Try to assemble some villagers, and attack the enemy spawn points before you're overrun!\n-   🚩 You can rally villagers to your hero's location by clicking on the hero and dragging to the rally button.\n-   ⚖️ Nothing is well-balanced and I'm sorry! (😴 But my sorrow is tempered somewhat by my severe sleep deprivation...)\n\n\n## 🎮 Controls\n\n🖱️+⌨️\n\n-   WASD/arrows to move\n-   Space to jump\n-   Click on units to select and command them\n\n\n## 💿 Software used\n\n-   **[Godot](https://godotengine.org/):** Game engine.\n-   **[Aseprite](https://www.aseprite.org/):** Pixel-art image editor.\n-   **[Bfxr](https://www.bfxr.net/):** Sound effects editor.\n-   **[FamiStudio](https://famistudio.org/):** Chiptune music tracker.\n-   **[Surfacer](https://godotengine.org/asset-library/asset/968):** Framework for procedural path-finding across 2D platforms.\n-   **[Scaffolder](https://godotengine.org/asset-library/asset/969):** Framework for general app and UI infrastructure.\n-   **[SurfaceTiler](https://github.com/SnoringCatGames/surface_tiler):** Framework for \"next-level\" autotiling.\n\n\n## 🐞 Post-submission bug fix\n\nI fixed a couple critical bugs after submitting.\n1.  The exported game would consistently crash when AI walked into walls.\n    -   **The bug:** I'm not sure of the cause yet!\n    -   **The fix:** I identified a boolean that was the wrong value in these cases, and flipped it. Now the AI will apparently sometimes get stuck, but at least it doesn't crash!\n2.  The level simply wouldn't load in the Windows export. This was caused by a typo in a filename. For some reason, Godot didn't choke on the invalid filename when running through the editor or in the HTML export.\n\n\n## 📺 I livestreamed the development on Twitch!\n\n-   https://www.twitch.tv/ukulelefury\n\n![worker_standing_256.gif](///raw/2de/12/z/4fe25.gif)\n\nhttps://www.youtube.com/watch?v=Ix7IdaGE3AA\n",
+      "Name": "Village Defender",
+      "Meta": {
+        "link-01": "https://github.com/levilindsey/ludum-dare-51",
+        "link-02": "https://levilindsey.itch.io/village-defender",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/ludum-dare-51-here-we-come"
+    },
+    {
+      "Id": 296742,
+      "Body": "A broughlike about creating and protecting the first discovered fire. Survive long enough to share the fire with the world!\n\nHoping to port this over to Android soon as well, with some post-jam tweaks. Follow the itch.io page for more on that or follow me on twitter @ScottKGoldsmith\n\nWhole game played with the arrow keys and z/x for menus.\n\nChop down trees (walk into them) to feed the fire, it consumes 1 wood every 10 seconds. Don't let the fire go out, you can see how full it is with the dots above the fire. Feed the fire too much and it will burn faster. Stand near the fire (purple dots) to be safe at night from prowling wolves.\n\n![The First Fire.PNG](///raw/17c/8/z/4f901.png)",
+      "Name": "The First Fire",
+      "Meta": {
+        "link-01": "https://northstategames.itch.io/the-first-fire",
+        "link-02": "https://northstategames.itch.io/the-first-fire",
+        "link-03": "https://northstategames.itch.io/the-first-fire",
+        "link-04": "https://northstategames.itch.io/the-first-fire"
+      },
+      "Path": "/events/ludum-dare/51/the-first-fire"
+    },
+    {
+      "Id": 296745,
+      "Body": "**Description:**\n\nA short, timed platformer, just to annoy you :)\n\n\n\n** Control:**\n\nArrow Keys / WASD / Sapce - Move\n\n\n**Tools:**\n\n- Game: Godot 3.3\n\n- Music: Bosca Ceoil\n\n- Sound Effects: Bfxr\n\n- Sprites: Piskel Online\n\n- Font: BitFontMaker2 Online\n\nHi everyone! This is my 6th attempt at Ludum Dare Compo and 1st time making a platformer game. I had a blast making it. And also got annoyed quite a lot, both making it and playtesting. So, I hope you will get at least half as annoyed as I was :P\n\nThere are 13 levels in total. All of them have a solution. Pay attention ;)\n\n![1.png](///raw/ad6/b2/z/4f74e.png)",
+      "Name": "10 Seconds To Annoyance",
+      "Meta": {
+        "link-01": "https://github.com/zimny11/10-Seconds-To-Annoyance",
+        "link-02": "https://zimny11.itch.io/10-seconds-to-annoyence",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/10-seconds-to-annoyance"
+    },
+    {
+      "Id": 296750,
+      "Body": "The Tensies, inhabitants of Tensec World, have a lifespan of 10 seconds. Not much, but they take it very positively! They are so grateful that they actually want to thank their Maker by building an enormous golden statue.\n\nHelp the Tensies make the best use of their short lifespan, and the future generations will repeat the actions. \n\nBuild new houses, granaries or depots, harvest the resources and build the Maker Statue!\n\n![tensecWorld_banner.png](///raw/46b/d1/z/4fef4.png)\n\n### Controls\n\nIn the world overview,\n - Use **WASD** or the **arrow keys** to move around.\n - Use the **mouse wheel** to zoom in and out.\n - Hover over buildings with you cursor to get some info. You can **click** on the houses to control its inhabitant.\n - If you clicked a house, you can cancel the Tensie controlling mode by **right-clicking**.\n - When placing a building, cancel the action with a **right-click**.\n\nIn the Tensie control mode,\n - Use **WASD** or the **arrow keys** to move around.\n - Press and hold **space** in front of an object to interact with it.\n\n### Tips\n\n - Trees, bushes, rocks and gold deposits have a limited amount of resources. It's usually a better idea to have no more than one Tensie to harvest them, so that they last longer.\n - You can find idling Tensies when their house has its door shut, light in the windows, and smoke coming from the chimney. Try to keep everyone busy to avoid wasting food.\n - Take into account the time to travel to the granary or depot. All the resources that a Tensie holds at the end of his life is lost!\n - Granaries are used to store food, while the depots accept wood, stone and gold. Make sure to go to the right place!\n\n### Changelog\n\n - Version 1.0 was developped in 48h and is the \"Compo\" version.\n - Version 1.1 includes the following:\n   - You can change the volume of the music, down by pressing **O** and up by pressing **P**.\n   - While in the menu screen, press **Escape** to quit the game.\n   - Fixed and improved some texts to make them clearer.\n   - Fixed the collider and info position on the depot and the maker statue.\n\n\n### Bugs\n\nThe end of the game was kinda rushed, sorry :(\n\n - If the food drops to 0, the game is over and you go back to the menu. That's expected, but not explained in game.\n - The goal system is a bit broken. When you see a goal in the textbox, you have to click the button to close it, then make the goal. When it's done, the textbox will appear and the story will continue.\n\n\n** Have fun! Any piece of advice, remark or feedback is appreciated! **",
+      "Name": "Tensec World",
+      "Meta": {
+        "link-01": "https://github.com/nistace/ld51",
+        "link-02": "https://nathanistace.be/gamejams/ludumdare51/1.1/",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/tensec-world"
+    },
+    {
+      "Id": 296867,
+      "Body": "\"Say something.\" Every 10 seconds.\n\n*A game barely made for Ludum Dare 51 Compo.*\n\nA card game about conversation, where you must say (play) something every 10 seconds! Play as Black, the discommunicative communicator, half-way coerced into a practice session with Red. Watch your partner's intents and keep the conversation going!\n\nThe game doesn't have BGM or any actual card art due to lack of time.\n\n## Gameplay\n\nThe game has a short integrated intro, but as a quick reminder just in case:\n\n### Game flow\n\n- Every 10 seconds, both parties take a simutaneous turn. Whenever a turn starts, everyone draws a card from their Deck.\n- Click on a card in your Hand (bottom-left) to select it. Selected cards are moved to your side of the Field (middle-left), from where it will be played at end of turn.\n- Only one card can be on each side of the Field at the same time. If you would select another card while there already is one, the card you clicked on would replace the one currently on the Field.\n- Each turn, when the timer runs out, the turn ends and the following happens:\n    - For each side of the Field, if it's empty, an \"Awkward Silence\" is generated and put there automatically. Not acting is itself an action!\n    - Effects on cards resolve.\n    - You gain or lost score equal to the sum of both cards' Values, depending on their Types. See below.\n    - Cards on the Field are moved to their owners' respective Discard piles.\n    - Everyone discards their leftmost cards to hand size (9).\n\n### Card attributes\n\n- Each card has a Type and a Value:\n    - Assertive cards are yellow. They are signified by upward-arrow symbols in the top-left corner, containing their value number.\n    - Receptive cards are blue. They are signified by downward-arrow symbols in the top-left corner, containing their value number.\n    - Deflective cards are pale. They are signified by hourglass symbols in the top-left corner, containing their value number.\n- Matches and Clashes:\n    - Assertive and Receptive cards Match with each other. Each Match made on the Field increases your score by the sum of the Value of both cards.\n    - Assertive and Assertive cards Clash with each other, so do Receptive cards with others of their kind. Each Clash made on the Field *decreases* your score by the sum of the Value of both cards.\n    - Deflective cards do not Match or Clash, but have negative value.\n- Each card also has a *Level*, represented as the number within the red circle, in the top-left corner of cards. Cards can only be played if the current *Conversation Level*, shown on the score meter located at the middle-right of the screen, is higher than its own level.\n\n### Trivia\n\n- Red always reveals the card she puts onto the Field at the start of turn. She's nice!\n\n## Tools\n\n- Godot Engine w/ Rust bindings\n- Krita\n- ChipTone for the very few sound effects\n\n## Fonts\n\nThis project redistributes multiple fonts by jeti (https://fontenddev.com/fonts/), licensed under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/\n\n- Cartridge by jeti\n- Five by Five by jeti\n- Kapel by jeti\n- Lunch Menu by jeti\n- Microserif by jeti\n- Peanut Money by jeti\n- Squarewave by jeti\n- Poco by jeti\n",
+      "Name": "Red and Black's Discommunicative Communication",
+      "Meta": {
+        "link-01": "https://chitoyuu.itch.io/ld51-red-and-blacks-discommunicative-communication",
+        "link-02": "https://chitoyuu.itch.io/ld51-red-and-blacks-discommunicative-communication",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/red-and-blacks-discommunicative-communication"
+    },
+    {
+      "Id": 296889,
+      "Body": "In 'Hero for 10 seconds' you play a hero which has to endure many obstacles, all of which last 10 seconds.\n\nFeel free to post your score :-).\n\n# ** Play it at: [https://insertcoffee.itch.io/hero-for-10-seconds](https://insertcoffee.itch.io/hero-for-10-seconds) **\n\n\n## Instructions\n\n* Movement: AWSD or arrow keys\n* Red outline = do *not* touch\n* Green outline = do touch\n\n## Screenshots\n\n![pizza_party_1.png](///raw/f75/c/z/4fd21.png)\n\n![bullet_hell_1.png](///raw/f75/c/z/4fd22.png)\n\n![all_you_can_eat.png](///raw/f75/c/z/4fe12.png)",
+      "Name": "Hero for 10 seconds",
+      "Meta": {
+        "link-01": "https://insertcoffee.itch.io/hero-for-10-seconds",
+        "link-02": "https://github.com/swenmeeuwes/ludum-dare-51",
+        "link-03": "https://insertcoffee.itch.io/hero-for-10-seconds",
+        "link-04": "https://insertcoffee.itch.io/hero-for-10-seconds"
+      },
+      "Path": "/events/ludum-dare/51/hero-for-10-seconds"
+    },
+    {
+      "Id": 296955,
+      "Body": "![clockwork_thumb_flat.png](///raw/4e5/44/z/4f8c2.png)\n\n![screenshots.png](///raw/4e5/44/z/4f8da.png)\n\n## Time waits for no one!\nUse the power of time to outmaneuver denizens of the night. In Clockwork, your hand of cards will grow stronger and larger every 10 seconds. Be careful, though, as monsters move and attack at this pace as well!\n\nControls\n- Mouse only\n- Click on a card to play it\n\n\n\n\nTools\n- Game engine: Unity\n- Vector graphics: Figma\n- Raster graphics: Gimp\n- Sound: Audacity\n- Music: BeepBox\n\n\nMade in 48 hours for the Ludum Dare 51 Compo, my second Ludum Dare.",
+      "Name": "Clockwork",
+      "Meta": {
+        "link-01": "https://googlypoo.itch.io/clockwork",
+        "link-02": "https://github.com/jel24/LD51-Clockwork.git",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/clockwork"
+    },
+    {
+      "Id": 297051,
+      "Body": "![logo1-export.png](///raw/2c7/c/z/4feab.png)\n\n:baseball: Premise :baseball: \n\n\nyou are BASEBALL KID\n\nyou are stuck in the NIGHTMARE DIMENSION\n\nall you have is a BAT and a BALL\n\nESCAPE.\n\nESCAPE.\n\nESCAPE.\n\n\n🏏 How to Play 🏏\n\nuse BAT and BALL\n\ncharge BAT by holding BUTTON\n\nkill PURPLES\n\nhit ball FAST for KILL\n\nhit ball DIAGONALLY for PRECISE\n\nbefore WALLS CLOSE IN\n\ngo through TRAPDOOR\n\n\n:camera: Screenshots :camera: \n\n![baseball_screenshot_0.png](///raw/2c7/c/z/4fe8d.png)\n\n![baseball_screenshot_1.png](///raw/2c7/c/z/4fe90.png)\n\n![baseball_screenshot_2.png](///raw/2c7/c/z/4fe92.png)\n\n![baseball_screenshot_3.png](///raw/2c7/c/z/4fe93.png)\n\n![4a1b8.png](///raw/2c7/c/z/4fe99.png)",
+      "Name": "Baseball Kid \u0026 The Nightmare Dimension",
+      "Meta": {
+        "link-01": "https://drive.google.com/file/d/1SxiUfcVuDqELbhuML5jSqCnYjKbG8ULI/view?usp=sharing",
+        "link-02": "https://drive.google.com/file/d/1baDUZ1qctltKav5DaytB8P5iQJ-DvpVx/view?usp=sharing",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/baseball-kid-the-nightmare-dimension"
+    },
+    {
+      "Id": 297070,
+      "Body": "Please be advised the LD embedded version is not working, there are alternative web versions below.  I am working to solve this issue.\n\nPlease remember to enable sound on the unity play site, its disabled by default.\n\n![51d01.gif](///raw/8e4/z/52109.gif)\n\n![firefox_wMMfV8U4Qk.png](///raw/8e4/z/4fd3c.png)The famed entrepreneur needs test subjects for his new one of a kind gadget.  Will the maker of the taser bot once again create a success or a failure?  Find out first hand in this first person puzzle adventure.\n\nPlease remember to enable sound on the unity play site, its disabled by default.",
+      "Name": "Testers' wanted!",
+      "Meta": {
+        "link-01": "https://simmer.io/@Tinykidtoodot/testers-wanted-lighting-fix",
+        "link-02": "https://drive.google.com/file/d/1sVs01TQdwjzGEWP2orWJitKv6oNbndJF/view?usp=sharing",
+        "link-03": "",
+        "link-04": ""
+      },
+      "Path": "/events/ludum-dare/51/the-device"
+    }
+]
