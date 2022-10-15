@@ -1,4 +1,4 @@
-import games from "../../public/games.json"
+import games from "../../public/games-small.json"
 
 // the scrapper is messing parent attribute :D
 // TODO: review this and pass a meaningful name
