@@ -9,18 +9,12 @@ body {
     font-family: system-ui;
     width: 100vw;
     height: 100vh;
-    background: hsl(40, 100%, 96.5%);
+    background: hsl(20, 80.0%, 17.0%);
     display: flex;
     align-items: flex-start;
     justify-content: center;
     margin-top: 120px;
 }
-
-.ellipsis {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}  
 
 .amber {
     --amber1: hsl(39, 70.0%, 99.0%);

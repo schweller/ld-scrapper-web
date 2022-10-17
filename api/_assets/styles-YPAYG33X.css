@@ -16,12 +16,6 @@ body {
     margin-top: 120px;
 }
 
-.ellipsis {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}  
-
 .amber {
     --amber1: hsl(39, 70.0%, 99.0%);
     --amber2: hsl(40, 100%, 96.5%);
