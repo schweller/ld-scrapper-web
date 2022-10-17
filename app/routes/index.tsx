@@ -5,9 +5,24 @@ import { violet, blackA, mauve, green, sand, amber, amberDark, sandDark } from "
 import { ExternalLinkIcon } from "@radix-ui/react-icons"
 import * as SeparatorPrimitive from "@radix-ui/react-separator"
 
-import { getGames } from "~/models/game.server"
+import { getGames, Game } from "~/models/game.server"
 import { getEvents } from "~/models/event.server"
 import { getLanguages } from "~/models/language.server"
+
+import {
+    ColumnDef,
+    ColumnFiltersState,
+    flexRender,
+    getCoreRowModel,
+    getFilteredRowModel,
+    getSortedRowModel,
+    Row,
+    SortingState,
+    useReactTable,
+    FilterFn,
+  } from '@tanstack/react-table'
+import { useVirtual } from 'react-virtual'
+import { SyntheticEvent, useMemo, useRef, useState } from "react"
 
 type LoaderData = {
     games: Awaited<ReturnType<typeof getGames>>;
@@ -93,7 +108,9 @@ const PillLink = styled('a', {
     display: 'flex',
     color: '$amber11',
     width: 120,
-    height: 35,
+    height: 20,
+    fontWeight: 700,
+    fontSize: 12,
     alignItems: 'center',
     justifyContent: 'space-evenly',
     background: '$amber1',
@@ -134,6 +151,45 @@ const Tag = styled('div', {
     },
 });
 
+const Table = styled('table', {
+    borderSpacing: 0,
+    border: '1px solid',
+    borderColor: '$amber10',
+    borderRadius: 11,
+    width: '100%'
+})
+
+const TableHeading = styled('th', {
+    width: 60,
+    padding: 10,
+    backgroundColor: '$amber6',
+    textAlign: 'left',
+    color: '$amber11',
+    '&:first-child': {
+        borderTopLeftRadius: 10,
+    },
+    '&:last-child': {
+        borderTopRightRadius: 10,
+    },
+})
+
+const TableRow = styled('tr', {
+    border: '1px solid',
+    borderColor: '$amber10',
+    '&:hover': {
+        background: '$amber3'
+    },
+    '&:last-child > td': {
+        borderBottom: 'none',
+    },
+})
+
+const TableCell = styled('td', {
+    padding: 10,
+    borderBottom: '1px solid',
+    borderBottomColor: '$amber10'
+})
+
 export const loader = async () => {
     return json<LoaderData>({
         games: await getGames(),
@@ -142,14 +198,184 @@ export const loader = async () => {
     })
 }
 
+const gameFilter: FilterFn<any> = (row, columnId, value, addMeta) => {
+    return true
+}
+
 export default function Index() {
     const { games, events, languages } = useLoaderData() as LoaderData;
+    const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
+    const [languageFilter, setLanguageFilter] = useState('Select a language')
+
+    const defaultColumns: ColumnDef<Game>[] = [
+        {
+            accessorKey: 'Name',
+            header: 'Name'
+        },
+        {
+            accessorFn: (row, i) => {
+                return `${ldRootUrl}${row.Path}`
+            },
+            cell: (data) => {
+                return <PillLink target="_blank" href={data.getValue() as string}>Game Link</PillLink>
+            },
+            header: 'Link'
+        },
+        {
+            accessorFn: (row, i) => {
+                const languagesList = languages.find(x => x.Id === row.Id)?.Languages[0]
+                return languagesList
+            },
+            cell: (data) => {
+                const list = data.getValue() as Object
+                return !list ? null : Object.keys(list).map((key, i) => (
+                    <Tag css={{marginRight: 10}}>{key}</Tag>
+                ))
+            },
+            size: 380,
+            header: 'Made with',
+            enableColumnFilter: true,
+            filterFn: (row, columnId, value: string) => {
+                console.log(value)
+                // console.log(row.getValue(columnId))
+                const kv = row.getValue(columnId)
+                if (kv) {
+                    if (kv[value]) {
+                        console.log(kv)
+                        return true
+                    } else {
+                        return false
+                    }
+                } else {
+                    return false
+                }
+            }
+        }
+    ]
+
+    // const columns = useMemo<ColumnDef<Game>[]>(
+    //     () => [
+    //         columnHelper.accessor('firstName'),
+    //         {
+    //             accessorKey: 'Name',
+    //             header: 'Name'
+    //         }
+    //     ],
+    //     []
+    // )
+
+    let filterValues:string[] = []
+    languages.forEach((obj) => {
+        const innerLang = obj.Languages[0]
+        Object.keys(innerLang).forEach((key) => {
+            if (filterValues.indexOf(key) === -1) {
+                filterValues = [key, ...filterValues]
+            }
+        })
+    })
+
+    const table = useReactTable({
+        data: games,
+        columns: defaultColumns,
+        enableColumnFilters: true,
+        state: {
+            columnFilters,
+        },
+        onColumnFiltersChange: setColumnFilters,
+        getCoreRowModel: getCoreRowModel(),
+        getSortedRowModel: getSortedRowModel(),
+        getFilteredRowModel: getFilteredRowModel(),
+        debugTable: true,
+    })
+
+    const tableContainerRef = useRef<HTMLDivElement>(null)
+    const { rows } = table.getRowModel()
+    const rowVirtualizer = useVirtual({
+      parentRef: tableContainerRef,
+      size: rows.length,
+      overscan: 100,
+    })
+
+    const { virtualItems: virtualRows, totalSize } = rowVirtualizer
+    const madeWithColumn = table.getColumn("Made with")
+
+    const handleSelectChange = (e) => {
+        madeWithColumn.setFilterValue(e.target.value)
+        setLanguageFilter(e.target.value)
+      };
+
     return (
         <Box css={{ width: '100%', margin: '0 15px'}}>
-            <Box css={{ width: '100%', maxWidth: 300, margin: '0 auto', textAlign: 'center' }}>
+            <Box css={{ width: '100%', maxWidth: 300, margin: '0 auto 80px', textAlign: 'center' }}>
                 <Text css={{ fontWeight: 700 }}>Ludum Dare Compo Games</Text>
                 <Text>A list of LD Compo games entry with their open-source links.</Text>
             </Box>
+            <select value={languageFilter} onChange={handleSelectChange}>
+                <option value="">Select language</option>
+                { filterValues.map((filter) => {
+                    return (
+                        <option value={filter}>
+                            {filter}
+                        </option>
+                    )
+                })}
+            </select>
+            <Table style={{borderSpacing: 0}}>
+            <thead>
+            {table.getHeaderGroups().map(headerGroup => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map(header => {
+                  return (
+                    <TableHeading
+                      key={header.id}
+                      colSpan={header.colSpan}
+                      style={{ width: header.getSize() }}
+                    >
+                      {header.isPlaceholder ? null : (
+                        <div
+                          {...{
+                            className: header.column.getCanSort()
+                              ? 'cursor-pointer select-none'
+                              : '',
+                            onClick: header.column.getToggleSortingHandler(),
+                          }}
+                        >
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                          {{
+                            asc: ' 🔼',
+                            desc: ' 🔽',
+                          }[header.column.getIsSorted() as string] ?? null}
+                        </div>
+                      )}
+                    </TableHeading>
+                  )
+                })}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+          {virtualRows.map(virtualRow => {
+              const row = rows[virtualRow.index] as Row<Game>
+              return (
+                <TableRow key={row.id}>
+                  {row.getVisibleCells().map(cell => {
+                    return (
+                      <TableCell key={cell.id}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    )
+                  })}
+                </TableRow>
+              )
+            })}
+          </tbody>
+        </Table>
             <List css={{margin: '30px 15px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px,1fr))', gridTemplateRows: 'auto', gridGap: "16px"}}>
                 {
                     games.map((game) => {

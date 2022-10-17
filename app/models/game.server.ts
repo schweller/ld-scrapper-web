@@ -3,7 +3,7 @@ import games from "../../public/games-small.json"
 // the scrapper is messing parent attribute :D
 // TODO: review this and pass a meaningful name
 // instead of "parent"
-type Game = {
+export type Game = {
     Id: number;
     Name: string;
     Path: string;
